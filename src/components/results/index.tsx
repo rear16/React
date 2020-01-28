@@ -1,8 +1,23 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
 import Page from './page'
 
-export default class Results extends React.Component{
+interface ResultsProps {suggestions:any}
+interface ResultsState {}
+
+class Results extends React.Component <ResultsProps, ResultsState>{
     render(){
-        return <Page/>
+        const { suggestions } = this.props
+        console.log(this.props);
+        return <Page suggestions={suggestions}/>
     }
 }
+
+const mapStateToProps = (state:any) => {
+    return {
+        suggestions: state.suggestions,
+        f: 987
+    }
+}
+
+export default connect(mapStateToProps)(Results)

@@ -1,6 +1,12 @@
 import React, { Fragment } from 'react'
 
-export default class Page extends React.Component{
+interface PageProps {
+    suggestions:any
+}
+
+interface PageState {}
+
+export default class Page extends React.Component <PageProps, PageState>{
     render(){
         return <Fragment>
             Results
